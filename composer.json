@@ -1,0 +1,34 @@
+{
+    "name": "sadaimudinaadhar/tinyurl",
+    "description": "A simple package for creating tiny urls.",
+    "type": "library",
+    "require": { 
+         "illuminate/support": "5.5.*|5.6.*|5.7.*",
+         "php": "^7.0|^7.1|^7.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vaisakh Vn",
+            "email": "42279368+sadaimudiNaadhar@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+                "Sadaimudinaadhar\\Tinyurl\\": "src/",
+                "Sadaimudinaadhar\\Tinyurl\\Providers\\": "src/Providers/",
+                "Sadaimudinaadhar\\Tinyurl\\Facades\\": "src/Facades/"
+            }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sadaimudinaadhar\\Tinyurl\\Providers\\TinyUrlServiceProvider"
+            ],
+            "aliases": {
+                "TinyUrl": "Sadaimudinaadhar\\Tinyurl\\Facades\\TinyUrl"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
