@@ -1,6 +1,6 @@
 ## tinyurl
 
-A simple custom URL shortner for Laravel
+A simple custom URL shortener for Laravel
 
 ### Documentation
 
