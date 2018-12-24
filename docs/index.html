@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <title>Introduction | tinyurl</title>
+    <meta name="generator" content="Jekyll v3.7.4" />
+    <meta property="og:title" content="Introduction" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="A Simple Laravel URL Shortener Package." />
+    <meta property="og:description" content="A Simple Laravel URL Shortener Package." />
+    <link rel="canonical" href="https://sadaimudinaadhar.github.io/tinyurl/" />
+    <meta name="google-site-verification" content="9wCMDG8k0EKjXI4tijRBLmBG4TcSBgLJzds-7Ek8ztM" />
+    <meta property="og:url" content="https://sadaimudinaadhar.github.io/tinyurl/" />
+    <meta property="og:site_name" content="tinyurl" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>tinyurl</h1>
+        <p>A Simple Laravel URL Shortener Package.</p>
+    </header>
+
+    <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/sadaimudiNaadhar/tinyurl" class="button fork"><strong>View On GitHub</strong></a>
+
+    </div>
+    <!-- end banner -->
+
+    <div class="wrapper">
+        <nav>
+            <ul></ul>
+        </nav>
+        <section>
+            <h2 id="introduction">Introduction</h2>
+
+            <p>A custom user friendly URL shortener where user can modify the requirements effortlessly. URL's will be prefixed by your domain name and a custom made prefix.</p>
+
+            <p><b>Use</b></p>
+            <pre class="highlight">
+<code>
+<span> use Sadaimudinaadhar\Tinyurl\Facades\TinyUrl;</span>
+
+<span> $short_url = TinyUrl::create("https://github.com/sadaimudiNaadhar/tinyurl"); </span>
+<span> print $short_url;    //  https://YOUR_DOMAIN/v1/asXy </span>
+</code>
+</pre>
+            <p><b>Note</b> User can modify the prefix 'v1' and can also set the length of tinyurl.</p>
+
+            <h3 id="markdown">Installation</h3>
+
+            <p>- Run below Composer command</p>
+            <pre class="highlight">
+<code>
+  <span> composer require sadaimudinaadhar/tinyurl </span>
+</code>
+</pre>
+            <p>- Publish migrations (OPTIONAL) and configuration files.</p>
+            <pre class="highlight">
+<code>
+<span>php artisan vendor:publish --tag=tinyurlconfig // Publishes tinyurls.php in your config folder.   </span>
+<span>php artisan vendor:publish --tag=tinyurlmigration // Publishes migrations in your database/migrations</span>
+</code>
+</pre>
+            <p><b>Note</b> Migrations will be automatically loaded. If you want to publish run the above migration command.</p>
+
+            <p>- Run the migration.</p>
+            <p><b>Note</b> Before running the migration, if you want to change table name. please do change in config/tinyurls.php. By default table name will be <b>tiny_urls</b>.</p>
+
+            <pre class="highlight">
+<code>
+<span>php artisan migrate</span>
+</code>
+</pre>
+
+            <h3 id="configuration">Configurations</h3>
+            <p>User can override default configurations in file <b>config/tinyurls.php</b> </p>
+
+            <pre class="highlight">
+<code>
+<span>TABLE' => 'tiny_urls',</span>
+<span>'URL_PREFIX' => 'v1',</span>
+<span>'MIN_LENGTH' => 4,</span>
+<span>'USE_NUMBERS' => true,</span>
+<span>'AUTH_URL_ROUTES' => false,</span>
+</code>
+</pre>
+            <ul>
+                <li>
+                    <b>TABLE</b>
+                    <p>User can set a custom table name.</p>
+                </li>
+                <li>
+                    <b>URL_PREFIX</b>
+                    <p>User can set a custom URL prefix. EG: https://YOUR_DOMAIN/v1/asXy , here 'v1' is the prefix. </p>
+                </li>
+                <li>
+                    <b>MIN_LENGTH</b>
+                    <p>User can set a custom table name.</p>
+                </li>
+                <li>
+                    <b>USE_NUMBERS</b>
+                    <p>Alphanumeric codes are generated for URL.</p>
+                </li>
+                <li>
+                    <b>AUTH_URL_ROUTES</b>
+                    <p>Will enable Laravel inbuilt Authentication for the routes.</p>
+                </li>
+            </ul>
+
+            <h3 id="trouble">Troubleshooting</h3>
+
+            <p>If you are using lower version of Laravel (Below 5.5). Register below alias and ServiceProvider manually in <b>config/app.php</b></p>
+
+            <pre class="highlight">
+<code>
+<span>  'providers' => [ 
+        /*
+         * Package Service Providers...
+         */
+
+       Sadaimudinaadhar\Tinyurl\Providers\TinyUrlServiceProvider::class,
+     ],</span>
+<span> 'aliases' => [
+
+        'TinyUrl' => Sadaimudinaadhar\Tinyurl\Facades\TinyUrl::class
+
+    ],</span>
+</code>
+</pre>
+
+        </section>
+        <footer>
+
+            <p>Project maintained by <a href="https://github.com/sadaimudiNaadhar">sadaimudiNaadhar</a></p>
+
+            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
